@@ -55,6 +55,7 @@ class FeedsActivity : BaseActivity() {
                 }
                 is UIState.Success -> {
                     viewAdapter.addItems(uiState.data.rows!!)
+                    viewAdapter.notifyDataSetChanged()
                     progressLayout.visibility = View.GONE
                 }
                 is UIState.Error -> {

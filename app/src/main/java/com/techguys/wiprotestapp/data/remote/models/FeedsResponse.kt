@@ -9,5 +9,5 @@ data class FeedsResponse(
 	val title: String? = null,
 
 	@field:SerializedName("rows")
-	val rows: List<Feed?>? = null
+	val rows: List<Feed>? = null
 )

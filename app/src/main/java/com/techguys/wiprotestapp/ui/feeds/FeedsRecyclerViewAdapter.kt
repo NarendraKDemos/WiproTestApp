@@ -31,6 +31,10 @@ class FeedsRecyclerViewAdapter: RecyclerView.Adapter<FeedsRecyclerViewAdapter.Fe
         holder.binding.executePendingBindings()
     }
 
+    override fun onViewRecycled(holder: FeedsViewHolder) {
+        super.onViewRecycled(holder)
+        holder.binding.feedImageView.setImageResource(0)
+    }
 
     class FeedsViewHolder(val binding: ItemFeedsBinding): RecyclerView.ViewHolder(binding.root)
 
