@@ -64,6 +64,7 @@ class FeedsActivity : BaseActivity() {
                     if (!feedsSwipeRefreshLayout.isRefreshing) progressLayout.visibility = View.VISIBLE
                 }
                 is UIState.Success -> {
+                    updateActionBarTitle(uiState.data.title)
                     viewAdapter.addItems(uiState.data.rows!!)
                     progressLayout.visibility = View.GONE
                     if (feedsSwipeRefreshLayout.isRefreshing) {
@@ -79,5 +80,9 @@ class FeedsActivity : BaseActivity() {
                 }
             }
         })
+    }
+
+    private fun updateActionBarTitle(title: String?) {
+        supportActionBar?.title = title
     }
 }
