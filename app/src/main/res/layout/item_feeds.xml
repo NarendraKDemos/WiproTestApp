@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+        <import type="android.view.View"/>
         <variable name="feed"
-                  type="com.techguys.wiprotestapp.ui.models.Feed" />
+                  type="com.techguys.wiprotestapp.ui.models.Feed"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:layout_height="wrap_content">
 
         <TextView
                 android:id="@+id/feedTitleTextView"
                 android:layout_width="0dp"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 tools:text="Murdochs needed couselling after hacking scandal, says magzine"
                 android:textColor="#0336FF"
                 android:textSize="17sp"
                 android:text="@{feed.title}"
+                android:visibility="@{feed.title != null ? View.VISIBLE : View.GONE }"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"/>
@@ -27,28 +30,33 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 tools:text="British hacking scandal brought simmering tensions"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginEnd="2dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="5dp"
+                android:paddingEnd="5dp"
                 android:textColor="#7c7c7c"
                 android:textSize="15sp"
+                android:visibility="@{feed.description != null ? View.VISIBLE : View.GONE }"
                 android:text="@{feed.description}"
-                app:layout_constraintWidth_percent="0.6"
                 app:layout_constraintRight_toLeftOf="@id/feedImageView"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/feedTitleTextView"/>
+                app:layout_constraintTop_toBottomOf="@id/feedTitleTextView" android:paddingStart="10dp"
+                />
 
         <ImageView
                 android:id="@+id/feedImageView"
-                android:layout_width="0dp"
+                android:layout_width="116dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="4dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:cropToPadding="true"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
                 tools:src="@tools:sample/avatars"
                 android:scaleType="centerCrop"
                 imageUrl="@{feed.imageHref}"
-                app:layout_constraintDimensionRatio="H,16:9"
-                app:layout_constraintWidth_percent="0.4"
-                app:layout_constraintLeft_toRightOf="@id/feedDescriptionTextView"
+                android:visibility="@{feed.imageHref != null ? View.VISIBLE : View.GONE }"
+                app:layout_constraintDimensionRatio="H,5:4"
                 app:layout_constraintTop_toBottomOf="@id/feedTitleTextView"
                 app:layout_constraintRight_toRightOf="parent"/>
 

@@ -16,6 +16,7 @@ class FeedsRecyclerViewAdapter: RecyclerView.Adapter<FeedsRecyclerViewAdapter.Fe
     fun addItems(matches: List<Feed>) {
         feeds.clear()
         feeds.addAll(matches)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedsViewHolder {
