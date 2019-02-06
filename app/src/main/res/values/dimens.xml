@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_padding">10dp</dimen>
+    <dimen name="primary_text_size">17sp</dimen>
+    <dimen name="secondary_text_size">15sp</dimen>
+    <dimen name="list_card_elevation">4dp</dimen>
+    <dimen name="list_item_cardview_margin">5dp</dimen>
+    <dimen name="list_item_image_width">116dp</dimen>
+</resources>
