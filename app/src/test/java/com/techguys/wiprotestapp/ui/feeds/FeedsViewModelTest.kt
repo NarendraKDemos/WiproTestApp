@@ -16,7 +16,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
-import org.mockito.runners.MockitoJUnitRunner
+import org.mockito.junit.MockitoJUnitRunner
 
 
 @RunWith(MockitoJUnitRunner::class)
@@ -51,7 +51,7 @@ class FeedsViewModelTest{
     @Test
     fun fetchFeedsOnSuccessShouldShowFeeds(){
         feedsViewModel.getFeeds().observeForever(liveDataObserver)
-        val rows = mutableListOf<Feed?>()
+        val rows = mutableListOf<Feed>()
         val feedsResponse = FeedsResponse("title", rows)
         `when`(iFeedsRepository.fetchFeeds()).thenReturn(Single.create {
             it.onSuccess(feedsResponse)
