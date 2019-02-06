@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WiproTestApp</string>
+    <string name="error_message">Oops! Something went wrong</string>
+    <string name="try_gain_message">Try again after sometime</string>
+    <string name="feeds_updated">feeds updated</string>
+    <string name="retry">Retry</string>
 </resources>

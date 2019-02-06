@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/errorLayout"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:clickable="true"
+              android:visibility="gone"
+              android:background="@android:color/white"
+              android:gravity="center"
+              android:focusable="true">
+
+    <ImageView
+            android:src="@drawable/ic_error_outline"
+            android:layout_width="@dimen/error_icon_image_size"
+            android:layout_height="@dimen/error_icon_image_size"/>
+
+    <TextView
+            android:gravity="center"
+            android:textSize="@dimen/error_message_text_size"
+            android:layout_marginRight="@dimen/horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:text="@string/error_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:gravity="center"
+            android:textSize="@dimen/try_again_message_text_size"
+            android:layout_gravity="center"
+            android:text="@string/try_gain_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <Button
+            android:id="@+id/retryButton"
+            android:background="@color/colorPrimary"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/retry"
+            android:padding="@dimen/default_padding"
+            android:layout_marginTop="@dimen/button_top_margin"
+            android:textColor="@android:color/white"
+            android:layout_width="@dimen/retry_button_width"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

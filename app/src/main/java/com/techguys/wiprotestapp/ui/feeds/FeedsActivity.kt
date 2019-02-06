@@ -12,6 +12,7 @@ import com.techguys.wiprotestapp.di.components.AppComponent
 import com.techguys.wiprotestapp.ui.base.BaseActivity
 import com.techguys.wiprotestapp.ui.models.UIState
 import kotlinx.android.synthetic.main.activity_feeds.*
+import kotlinx.android.synthetic.main.error_layout.*
 import kotlinx.android.synthetic.main.progress_layout.*
 import javax.inject.Inject
 
@@ -32,20 +33,30 @@ class FeedsActivity : BaseActivity() {
     override fun init(savedInstanceState: Bundle?) {
         setupRecyclerView()
         setupSwipeToRefresh()
+        setupError()
         setupViewModel(savedInstanceState)
+    }
+
+    private fun setupError() {
+        retryButton.setOnClickListener { fetchFeeds() }
     }
 
     private fun setupSwipeToRefresh() {
         feedsSwipeRefreshLayout.setOnRefreshListener {
-            feedsViewModel.fetchFeeds()
+            fetchFeeds()
         }
     }
+
+    private fun fetchFeeds(){
+        feedsViewModel.fetchFeeds()
+    }
+
 
     private fun setupRecyclerView() {
         viewAdapter = FeedsRecyclerViewAdapter()
         feedsRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@FeedsActivity)
-            addItemDecoration(DividerItemDecoration(this@FeedsActivity, RecyclerView.VERTICAL))
+            //addItemDecoration(DividerItemDecoration(this@FeedsActivity, RecyclerView.VERTICAL))
             adapter = viewAdapter
         }
     }
@@ -61,6 +72,7 @@ class FeedsActivity : BaseActivity() {
 
             when (uiState) {
                 is UIState.Loading -> {
+                    errorLayout.visibility = View.GONE
                     if (!feedsSwipeRefreshLayout.isRefreshing) progressLayout.visibility = View.VISIBLE
                 }
                 is UIState.Success -> {
@@ -69,14 +81,15 @@ class FeedsActivity : BaseActivity() {
                     progressLayout.visibility = View.GONE
                     if (feedsSwipeRefreshLayout.isRefreshing) {
                         feedsSwipeRefreshLayout.isRefreshing = false
-                        showToast("feeds updated")
+                        showToast(getString(R.string.feeds_updated))
                     }
                 }
                 is UIState.Error -> {
                     progressLayout.visibility = View.GONE
                     if (feedsSwipeRefreshLayout.isRefreshing) feedsSwipeRefreshLayout.isRefreshing = false
-                    val msg = uiState.error.message
-                    msg?.let { showToast(msg) }
+                    errorLayout.visibility = View.VISIBLE
+                    //val msg = uiState.error.message
+                    //msg?.let { showToast(msg) }
                 }
             }
         })

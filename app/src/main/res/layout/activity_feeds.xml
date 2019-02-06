@@ -29,4 +29,6 @@
 
     <include layout="@layout/progress_layout" />
 
+    <include layout="@layout/error_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

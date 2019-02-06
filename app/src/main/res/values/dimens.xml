@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_padding">10dp</dimen>
+    <dimen name="primary_text_size">17sp</dimen>
+    <dimen name="secondary_text_size">15sp</dimen>
+    <dimen name="list_card_elevation">4dp</dimen>
+    <dimen name="list_item_cardview_margin">5dp</dimen>
+    <dimen name="list_item_image_width">116dp</dimen>
+    <dimen name="horizontal_margin">10dp</dimen>
+    <dimen name="error_icon_image_size">96dp</dimen>
+    <dimen name="error_message_text_size">28sp</dimen>
+    <dimen name="try_again_message_text_size">22sp</dimen>
+    <dimen name="retry_button_width">120dp</dimen>
+    <dimen name="default_padding">10dp</dimen>
+    <dimen name="button_top_margin">25dp</dimen>
+</resources>
