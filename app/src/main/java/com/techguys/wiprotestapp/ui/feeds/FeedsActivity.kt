@@ -45,7 +45,7 @@ class FeedsActivity : BaseActivity() {
         viewAdapter = FeedsRecyclerViewAdapter()
         feedsRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@FeedsActivity)
-            addItemDecoration(DividerItemDecoration(this@FeedsActivity, RecyclerView.VERTICAL))
+            //addItemDecoration(DividerItemDecoration(this@FeedsActivity, RecyclerView.VERTICAL))
             adapter = viewAdapter
         }
     }
