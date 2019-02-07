@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="secondary_text_color">#7c7c7c</color>
     <color name="primary_text_color">#0336FF</color>
+    <color name="right_arrow_color">#949494</color>
 </resources>
