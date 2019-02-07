@@ -31,7 +31,8 @@ class FeedsViewModel(private val feedsRepository: IFeedsRepository) : BaseViewMo
             .fetchFeeds()
             .subscribe(
             {
-                feedsLiveData.postValue(UIState.Success(Feeds(it.title, it.rows)))
+                val filtered = it.rows?.filterNot { feed-> feed.imageHref == null && feed.description == null && feed.title == null }
+                feedsLiveData.postValue(UIState.Success(Feeds(it.title, filtered)))
             },
             {
                 feedsLiveData.postValue(UIState.Error(it))
