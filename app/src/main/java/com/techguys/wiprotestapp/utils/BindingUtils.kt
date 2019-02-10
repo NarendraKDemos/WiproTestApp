@@ -11,7 +11,7 @@ val requestOptions = RequestOptions().apply {
     //placeholder(R.drawable.image_placeholder)
     diskCacheStrategy(DiskCacheStrategy.ALL)
     skipMemoryCache(false)
-    error(R.drawable.image_placeholder)
+    //error(R.drawable.image_placeholder)
 }
 
 @BindingAdapter("imageUrl")
